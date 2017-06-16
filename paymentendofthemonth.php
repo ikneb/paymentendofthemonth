@@ -167,6 +167,7 @@ class Paymentendofthemonth extends PaymentModule
 		}
 
 		$state = $params['order']->getCurrentState();
+
 		if (
 		in_array(
 			$state,
@@ -192,6 +193,7 @@ class Paymentendofthemonth extends PaymentModule
 			}
 
 			$this->smarty->assign(array(
+				'total_to_pay' => $params['order']->total_paid,
 				'shop_name' => $this->context->shop->name,
 				'total' => Tools::displayPrice(
 					$params['order']->getOrdersTotalPaid(),
@@ -216,6 +218,7 @@ class Paymentendofthemonth extends PaymentModule
 
 		return $this->fetch('module:paymentendofthemonth/views/templates/hook/payment_return.tpl');
 	}
+
 
 	public function checkCurrency($cart)
 	{

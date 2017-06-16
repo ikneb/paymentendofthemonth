@@ -16,7 +16,6 @@ class PaymentendofthemonthValidationModuleFrontController extends ModuleFrontCon
 
 		// Check that this payment option is still available in case the customer changed his address just before the end of the checkout process
 		$authorized = false;
-//		var_dump(Module::getPaymentModules());exit;
 		foreach (Module::getPaymentModules() as $module)
 			if ($module['name'] == 'paymentendofthemonth')
 			{
